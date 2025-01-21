@@ -5,12 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Móda za 1. republiky</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-light: #f3f4f6;
+            --bg-dark: #1f2937;
+            --text-light: #1f2937;
+            --text-dark: #f3f4f6;
+        }
+        [data-theme="dark"] {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        [data-theme="light"] {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+    </style>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+<body data-theme="light" class="font-sans leading-normal tracking-normal">
     <header class="bg-blue-900 text-white py-4">
         <div class="container mx-auto text-center">
             <h1 class="text-4xl font-bold">Móda za 1. republiky</h1>
             <p class="text-lg mt-2">Období elegance a stylu v Československu</p>
+            <button onclick="toggleTheme()" class="mt-4 bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded">
+                Přepnout Dark/Light mód <i class="fas fa-adjust"></i>
+            </button>
         </div>
     </header>
 
@@ -26,7 +56,7 @@
         <section class="mb-8">
             <h2 class="text-2xl font-semibold text-gray-800 mb-4">Dámská móda</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <img src="https://via.placeholder.com/400x300" alt="Dámská móda" class="rounded-lg shadow-md">
+                <img src="https://source.unsplash.com/400x300/?fashion,women" alt="Dámská móda" class="rounded-lg shadow-md transform hover:scale-105 transition duration-300">
                 <div>
                     <p class="text-gray-700 leading-relaxed">
                         Dámská móda se vyznačovala elegantními šaty, které zdůrazňovaly ženskou postavu, ale byly zároveň pohodlné. 
@@ -45,7 +75,7 @@
                         Boty byly pečlivě leštěné a obleky šité na míru byly znakem společenského statusu.
                     </p>
                 </div>
-                <img src="https://via.placeholder.com/400x300" alt="Pánská móda" class="rounded-lg shadow-md">
+                <img src="https://source.unsplash.com/400x300/?fashion,men" alt="Pánská móda" class="rounded-lg shadow-md transform hover:scale-105 transition duration-300">
             </div>
         </section>
 
@@ -68,6 +98,7 @@
     <footer class="bg-blue-900 text-white py-4">
         <div class="container mx-auto text-center">
             <p>&copy; 2025 Móda první republiky. Všechna práva vyhrazena.</p>
+            <p class="mt-2">Web vytvořil Denis Bušek, tým Bobři.</p>
         </div>
     </footer>
 </body>
